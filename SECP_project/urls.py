@@ -10,6 +10,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('myprofile.urls', namespace='myprofile')),
+    path('album/', include('my_album.urls', namespace='my_album')),
 ]
 
 if settings.DEBUG:
