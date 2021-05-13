@@ -6,4 +6,5 @@ app_name = 'my_album'
 
 urlpatterns = [
      path('', views.albumspage, name = 'albumspage'),
+     path('blueberry/', views.blueberry, name = 'blueberry'),
 ]
