@@ -9,9 +9,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('myprofile.urls', namespace='myprofile')),
+    path('myprofile/', include('myprofile.urls', namespace='myprofile')),
     path('album/', include('my_album.urls', namespace='my_album')),
-    path('blog/', include('blog.urls', namespace='blog')),
+    path('', include('blog.urls', namespace='blog')),
 
 ]
 
