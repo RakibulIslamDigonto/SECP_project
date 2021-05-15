@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     'storages',
 ]
 
+INSTALLED_APPS += ('django_summernote',)
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     # Whitenoise for middleware
@@ -142,5 +145,6 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 django_heroku.settings(locals())

@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Blog
+from .models import Blog, Comment
+from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
 
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(SummernoteModelAdmin):
 
     list_display = [
         'thumbnail',
@@ -12,4 +13,15 @@ class BlogAdmin(admin.ModelAdmin):
         'creation'
     ]
 
+    summernote_fields = ('discription',)
+
 admin.site.register(Blog, BlogAdmin)
+
+class CommentAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'name',
+        'body'
+    ]
+
+admin.site.register(Comment, CommentAdmin)

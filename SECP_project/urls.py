@@ -12,6 +12,7 @@ urlpatterns = [
     path('myprofile/', include('myprofile.urls', namespace='myprofile')),
     path('album/', include('my_album.urls', namespace='my_album')),
     path('', include('blog.urls', namespace='blog')),
+    path('summernote/', include('django_summernote.urls'))
 
 ]
 

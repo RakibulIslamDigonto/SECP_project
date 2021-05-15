@@ -182,7 +182,7 @@
         
 
           <p>
-            {{ blog.discription }}
+            {{ blog.discription | safe }}
           </p>
         
 
@@ -357,6 +357,7 @@
 
           <div class="row">
             <div class="col-md-6">
+
               <!-- Blog Card -->
               <article class="border-bottom h-100 py-5">
                 <div class="row justify-content-between">
@@ -364,11 +365,11 @@
                     <a
                       class="d-block small font-weight-bold text-cap mb-2"
                       href="#"
-                      >Product</a
+                      >title</a
                     >
                     <h4 class="mb-0">
                       <a class="text-inherit" href="single-article.html"
-                        >Better is when everything works together</a
+                        >short discription</a
                       >
                     </h4>
                   </div>
@@ -384,141 +385,12 @@
               </article>
               <!-- End Blog Card -->
             </div>
-
-            <div class="col-md-6">
-              <!-- Blog Card -->
-              <article class="border-bottom h-100 py-5">
-                <div class="row justify-content-between">
-                  <div class="col-6">
-                    <a
-                      class="d-block small font-weight-bold text-cap mb-2"
-                      href="#"
-                      >Tech</a
-                    >
-                    <h4 class="mb-0">
-                      <a class="text-inherit" href="single-article.html"
-                        >Should You Buy An Apple Pencil?</a
-                      >
-                    </h4>
-                  </div>
-
-                  <div class="col-5">
-                    <img
-                      class="img-fluid"
-                      src="../../assets/img/500x280/img3.jpg"
-                      alt="Image Description"
-                    />
-                  </div>
-                </div>
-              </article>
-              <!-- End Blog Card -->
-            </div>
-
-            <div class="col-md-6">
-              <!-- Blog Card -->
-              <article class="border-bottom h-100 py-5">
-                <div class="row justify-content-between">
-                  <div class="col-6">
-                    <a
-                      class="d-block small font-weight-bold text-cap mb-2"
-                      href="#"
-                      >Product</a
-                    >
-                    <h4 class="mb-0">
-                      <a class="text-inherit" href="single-article.html"
-                        >This Watch gym partnerships give you perks for working
-                        out</a
-                      >
-                    </h4>
-                  </div>
-
-                  <div class="col-5">
-                    <img
-                      class="img-fluid"
-                      src="../../assets/img/500x280/img5.jpg"
-                      alt="Image Description"
-                    />
-                  </div>
-                </div>
-              </article>
-              <!-- End Blog Card -->
-            </div>
-
-            <div class="col-md-6">
-              <!-- Blog Card -->
-              <article class="border-bottom h-100 py-5">
-                <div class="row justify-content-between">
-                  <div class="col-6">
-                    <a
-                      class="d-block small font-weight-bold text-cap mb-2"
-                      href="#"
-                      >Tech</a
-                    >
-                    <h4 class="mb-0">
-                      <a class="text-inherit" href="single-article.html"
-                        >Drone Company PrecisionHawk Names New CEO</a
-                      >
-                    </h4>
-                  </div>
-
-                  <div class="col-5">
-                    <img
-                      class="img-fluid"
-                      src="../../assets/img/500x280/img7.jpg"
-                      alt="Image Description"
-                    />
-                  </div>
-                </div>
-              </article>
-              <!-- End Blog Card -->
-            </div>
           </div>
         </div>
       </div>
       <!-- End Blog Card Section -->
 
-      <!-- Subscribe Section -->
-      <div class="container space-bottom-2 space-bottom-lg-3">
-        <!-- Title -->
-        <div class="w-md-60 text-center mx-auto mb-7">
-          <h2>Stay in the know</h2>
-          <p>Get special offers on the latest developments from Blueberry.</p>
-        </div>
-        <!-- End Title -->
-
-        <div class="w-lg-40 mx-lg-auto">
-          <!-- Form -->
-          <form class="js-validate">
-            <div class="form-row">
-              <div class="col-sm col-md-6 col-lg mb-2">
-                <div class="js-form-message">
-                  <label class="sr-only" for="signupSrEmail">Your email</label>
-                  <div class="input-group">
-                    <input
-                      type="email"
-                      class="form-control"
-                      name="email"
-                      id="signupSrEmail"
-                      placeholder="Your email"
-                      aria-label="Your email"
-                      required
-                      data-msg="Please enter a valid email address."
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-auto">
-                <button type="submit" class="btn btn-primary btn-block">
-                  Get Started
-                </button>
-              </div>
-            </div>
-          </form>
-          <!-- End Form -->
-        </div>
-      </div>
-      <!-- End Subscribe Section -->
+      
     </main>
     <!-- ========== END MAIN ========== -->
 
