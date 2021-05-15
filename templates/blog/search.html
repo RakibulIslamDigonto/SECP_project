@@ -175,29 +175,16 @@
             </div>
           </div>
           -->  
-      <!-- search Section -->
-      <!-- Search Section -->
-      <div class="bg-navy">
-        <div class="bg-img-hero-center" style="background-image: url({% static 'blueberry/assets/svg/components/abstract-shapes-19.svg' %});">
-          <div class="container space-1">
-            <div class="w-lg-80 mx-lg-auto">
 
-              <!-- Input -->
-              <form action="{% url 'blog:search_blog' %}" class="input-group input-group-merge input-group-borderless">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="askQuestions">
-                    <i class="fas fa-search"></i>
-                  </span>
-                </div>
-                <input type="search" class="form-control" placeholder="Search for answers" name="q" aria-label="Search for answers" aria-describedby="askQuestions">
-              </form>
-              <!-- End Input -->
-
-            </div>
-          </div>
-        </div>
-      </div>
-<!-- End Search Section -->
+          <!-- breadcrumb Section -->
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'blog:blog_list' %}">Blog Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Search Results</li>
+            </ol>
+          </nav>
+          <!-- breadcrumb end Section -->
+          <h1>Your search for: {{ query }}</h1>
 
         </div>
       </div>
@@ -207,7 +194,7 @@
       
       <div class="container space-bottom-3">
         <div class="w-md-75 w-lg-60 mx-md-auto">
-          {% for blog in page_obj %}
+          {% for blog in queryset %}
           <!-- End Blog Card -->
           <article class="card mb-3 mb-sm-5">
             <img
@@ -264,7 +251,7 @@
 
           <div class="space-bottom-2"></div>
 
-          <!-- Pagination -->
+          <!-- Pagination 
           <nav aria-label="Page navigation">
             <ul class="pagination mb-0">
               
@@ -323,7 +310,8 @@
             
             </ul>
           </nav>
-          <!-- End Pagination -->
+          
+        End Pagination -->
         </div>
       </div>
       <!-- End Blog Listing Section -->
