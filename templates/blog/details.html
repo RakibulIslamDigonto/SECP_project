@@ -262,11 +262,13 @@
 
           <div class="pt-2 mb-11">
             <div class="mb-4">
-              <h3>3 Comments</h3>
+              <h3>{{ blog.comment_count }} Comments</h3>
             </div>
 
             <ul class="list-unstyled">
+              {% for comment in comments %}
               <!-- Comment -->
+              
               <li class="mb-5">
                 <div class="media align-items-center mb-2">
 
@@ -274,19 +276,20 @@
                     <div
                       class="d-flex justify-content-between align-items-center"
                     >
-                      <span class="h5 mb-0">Dave Austin</span>
-                      <small class="text-muted">1 day ago</small>
+                      <span class="h5 mb-0">{{ comment.name }}</span>
+                      <small class="text-muted">{{ comment.creation | timesince }}</small>
                     </div>
                   </div>
                 </div>
 
                 <p>
-                  
+                  {{ comment.body }}
                 </p>
 
               
 
               </li>
+              {% endfor %}
               <!-- End Comment -->
             </ul>
           </div>
