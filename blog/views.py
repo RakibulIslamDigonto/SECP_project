@@ -1,11 +1,8 @@
-
-
-
 from django.core import paginator
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import CommentForm
 from django.http import HttpResponseRedirect
-from .models import Blog
+from .models import Blog, Category
 from django.db.models import Q, query
 from django.core.paginator import Paginator
 from django.contrib import messages
@@ -13,18 +10,27 @@ from django.shortcuts import redirect
 
 # Create your views here.
 
-def blog_list(request):
+def blog_list(request, category_slug= None):
+    category = None
+    categories = Category.objects.all()
     blog = Blog.objects.all()
-
-
+    
     paginator = Paginator(blog, 2)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        blog = blog.filter(category=category)
+
+        paginator = Paginator(blog, 2)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
 
     context = {
         'blogs':blog,
+        'category':category,
+        'categories':categories,
         'page_obj':page_obj
-
     }
     return render(request, 'blog/blog.html', context)
 
@@ -32,6 +38,8 @@ def blog_list(request):
 def blog_details(request, slug):
 
     blog = Blog.objects.get(slug=slug)
+           #gattit
+    similar_blogs = blog.tags.similar_objects()[:2]
     comments = blog.comments.all()
 
     if request.method == 'POST':
@@ -51,6 +59,8 @@ def blog_details(request, slug):
 
     context = {
         'blog':blog,
+        #gattit
+        'similar_blogs':similar_blogs,
         'comments':comments
 
     }

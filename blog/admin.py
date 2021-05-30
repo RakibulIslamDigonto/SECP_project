@@ -1,7 +1,15 @@
 from django.contrib import admin
-from .models import Blog, Comment
+from .models import Blog, Comment,Category
 from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
+
+class CategoryAdmin(admin.ModelAdmin):
+
+    list_display = ['name','slug']
+    prepopulated_fields ={'slug': ('name',)}
+
+admin.site.register(Category, CategoryAdmin)
+
 
 class BlogAdmin(SummernoteModelAdmin):
 
