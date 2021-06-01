@@ -10,25 +10,20 @@ from django.shortcuts import redirect
 
 # Create your views here.
 
-def blog_list(request, category_slug= None):
-    category = None
+def blog_list(request):
+
     categories = Category.objects.all()
     blog = Blog.objects.all()
+    latest_blog = Blog.objects.all()[:3]
     
-    paginator = Paginator(blog, 2)
+    paginator = Paginator(blog, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    if category_slug:
-        category = get_object_or_404(Category, slug=category_slug)
-        blog = blog.filter(category=category)
-
-        paginator = Paginator(blog, 2)
-        page_number = request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
+    
 
     context = {
         'blogs':blog,
-        'category':category,
+        'latest_blog':latest_blog,
         'categories':categories,
         'page_obj':page_obj
     }
@@ -36,7 +31,8 @@ def blog_list(request, category_slug= None):
 
 
 def blog_details(request, slug):
-
+    categories = Category.objects.all()
+    latest_blog = Blog.objects.all()[:3]
     blog = Blog.objects.get(slug=slug)
            #gattit
     similar_blogs = blog.tags.similar_objects()[:2]
@@ -59,6 +55,8 @@ def blog_details(request, slug):
 
     context = {
         'blog':blog,
+        'latest_blog':latest_blog,
+        'categories':categories,
         #gattit
         'similar_blogs':similar_blogs,
         'comments':comments
@@ -68,6 +66,8 @@ def blog_details(request, slug):
 
 
 def search_blog(request):
+    categories = Category.objects.all()
+    latest_blog = Blog.objects.all()[:3]
 
     queryset = Blog.objects.all()
     query = request.GET.get('q')
@@ -83,9 +83,36 @@ def search_blog(request):
     
     context = {
         'queryset': queryset,
+        'latest_blog':latest_blog,
+        'categories':categories,
         'query': query
     }
 
     return render(request, 'blog/search.html', context)
 
 
+def blog_category(request, category_slug= None):
+    category = None
+    categories = Category.objects.all()
+    blog = Blog.objects.all()
+    latest_blog = Blog.objects.all()[:3]
+    
+    paginator = Paginator(blog, 4)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        blog = blog.filter(category=category)
+
+        paginator = Paginator(blog, 4)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+    context = {
+        'blogs':blog,
+        'category':category,
+        'latest_blog':latest_blog,
+        'categories':categories,
+        'page_obj':page_obj
+    }
+    return render(request, 'blog/blog_category.html', context)

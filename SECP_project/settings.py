@@ -130,6 +130,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
     # Aws media storage configurations
+
+'''
 AWS_ACCESS_KEY_ID = 'AKIARVGPJVYVP7XN2E5V'
 AWS_SECRET_ACCESS_KEY = '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'
 
@@ -137,7 +139,7 @@ AWS_STORAGE_BUCKET_NAME = 'nasim.secpstorage'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
+'''
 
 
 
