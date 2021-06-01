@@ -270,7 +270,7 @@
 										</a>
 									</div>
 									<div class="details clearfix">
-										<h6 class="post-title my-0"><a href="">{{ blog.title }}</a></h6>
+										<h6 class="post-title my-0"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h6>
 										<ul class="meta list-inline mt-1 mb-0">
 											<li class="list-inline-item">{{ blog.creation | date}}</li>
 										</ul>
