@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 from django.contrib import messages
 from django.shortcuts import redirect
 
-# Create your views here.
+#Create your views here.
 
 def blog_list(request):
 
@@ -16,13 +16,13 @@ def blog_list(request):
     blog = Blog.objects.all()
     latest_blog = Blog.objects.all()[:3]
     
-    paginator = Paginator(blog, 4)
+    paginator = Paginator(blog, 2)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
 
     context = {
-        'blogs':blog,
+        'blog':blog,
         'latest_blog':latest_blog,
         'categories':categories,
         'page_obj':page_obj
