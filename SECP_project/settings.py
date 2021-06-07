@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'myprofile',
     'my_album',
     'blog',
+    'cloudinary_storage',
+    'cloudinary',
     'storages',
     'taggit'
 ]
@@ -131,7 +133,7 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 
     # Aws media storage configurations
 
-
+'''
 AWS_ACCESS_KEY_ID = 'AKIARVGPJVYVLNFAAMTG'
 AWS_SECRET_ACCESS_KEY = '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'
 
@@ -139,8 +141,15 @@ AWS_STORAGE_BUCKET_NAME = 'nasim.secpstorage'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+'''
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'rid-cede-studio',
+    'API_KEY': '674135458627476',
+    'API_SECRET': 'nMJM4U0HQVJ9ZpUI7p2Z9lReR6g'
+}
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Default primary key field type
